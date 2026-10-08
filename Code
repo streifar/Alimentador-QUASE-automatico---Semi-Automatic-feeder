@@ -1,0 +1,28 @@
+#include <Servo.h>
+int botao = 7;
+int ledr = 6;
+int ledg = 5;
+int leitura;
+Servo abc;
+
+void setup() {
+  pinMode(botao , INPUT);
+  pinMode(ledr , OUTPUT);
+  pinMode(ledg , OUTPUT);
+  abc.attach(10);
+  abc.write(0);
+};
+
+void loop() {
+  leitura = digitalRead(botao);
+  if (leitura == HIGH) {
+    digitalWrite(ledr , LOW);
+    digitalWrite(ledg , HIGH);
+    delay(500);
+    abc.write(180);
+  }
+  else{
+    digitalWrite(ledr , HIGH);
+    digitalWrite(ledg , LOW);
+    abc.write(155);}
+};
